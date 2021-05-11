@@ -16,7 +16,14 @@ let lastY = 0;
 
 
 let Draw = (e) =>{
+    if(!isDrowing) return;
+    Ctx.beginPath;
+    Ctx.moveTo(lastX,lastY); //開始 
+    Ctx.lineTo(e.offsetX,e.offsetY); //結束
+    Ctx.stroke();
+    [lastX, lastY] = [e.offsetX, e.offsetY]
  let value = e.target
+
 //  console.log(e)
 }
 
@@ -38,7 +45,7 @@ Canvas.addEventListener('mouseup',(e)=>{ //滑鼠放開後
 
 Canvas.addEventListener('mouseout',()=>{ //滑鼠放開畫框
     isDrowing = false;
-    
+
 //  console.log(isDrowing)
 })
 
