@@ -74,7 +74,7 @@ img{
 	color: black;
 	display: flex;
 	align-items: center;
-	margin:  0 auto;
+	margin:  0 46px;
 }
 
 .Function-Bar>a>p{
@@ -109,20 +109,23 @@ img{
 .Size{
 	display: flex;
 	align-items: center;
-	justify-content: center
+	margin: 0 20px;
 }
 .Size>h1, .Size>p{
 	font-size: 20px;
 }
 
 .Size-input{
-	width: 74%;
 	background-color: #E8E8E8;
 	border: solid 1px #E8E8E8;
-	width: 20%;
+	border-radius: 25px;
+	text-align: center;
+	width: 60px;
+	font-size: 20px;
     padding: 8px;
 	margin: 0px 20px;
-    border-radius: 15px;
+	outline: none;
+ 
 }
 
 i{
