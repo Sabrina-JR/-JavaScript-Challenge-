@@ -57,7 +57,7 @@ img{
 /* ------------------ */
 
 *, *::before, *::after{
-    /* outline: solid 1px black; */
+    outline: solid 1px black;
     box-sizing: border-box;
 
 }
