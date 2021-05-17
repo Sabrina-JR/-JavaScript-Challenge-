@@ -4,8 +4,9 @@
 // const beginStartScreen = document.querySelector('.begin-start');
 // const startScreen = document.querySelector('.satrt');
 const restartBtn = document.querySelector('.restart-btn');
-console.log(restartBtn)
-const boxes = document.querySelectorAll('.game-box')//九個格子
+const Score = document.querySelectorAll('.scoring');
+
+const boxes = document.querySelectorAll('.game-box');//九個格子
 
 
 
@@ -14,6 +15,9 @@ const PLAYER_1 = 1 //圈
 const PLAYER_2 = -1 //叉
 
 let Step = 1;
+let Winner= null;
+let PLAYER_O = 0;
+let PLAYER_X = 0;
 
 let map =[0,0,0,0,0,0,0,0,0]
 
@@ -37,9 +41,9 @@ boxes.forEach((box, index) => {
          
             }
             Step ++
-            console.log(map)
-            // console.log(Step)
             GameResult(Step);
+            
+            
     })
  
   
@@ -61,16 +65,35 @@ let  GameResult = () =>{
 
     //單數o 雙數x
     GameRule.forEach((box)=>{
-            if(box === 3){
-                console.log('Circle win'+ Step)
-            }else if(box === -3){
-                console.log('Cross win'+ Step)
-            }else if (Step === 10){
-                console.log('draw'+ Step)
+            if(box == 3 ){
+                Winner = 'CIRCLE WIN';
+            }else if(box == -3  ){
+                Winner = 'CROSS WIN';
+            }else if (Step == 10){
+                Winner = 'DRAW';
             }
-            console.log(map,Step)
+            UpdateScoring(Winner)
+            console.log(Winner,map,box,Step)
     })
     
+}
+
+
+let UpdateScoring = (Winner) =>{
+        switch(Winner){
+            case 'CIRCLE WIN':
+               PLAYER_O++
+               console.log('PLAYER_O:'+PLAYER_O)
+                break;
+            case 'CIRCLE WIN':
+               PLAYER_X++
+               console.log('PLAYER_X:'+PLAYER_X)
+                break;
+           default:
+                break;
+        }
+    
+
 }
 
 restartBtn.addEventListener('click',()=>{
@@ -79,10 +102,9 @@ restartBtn.addEventListener('click',()=>{
     })
     map =[0,0,0,0,0,0,0,0,0];
     Step= 1;
-    GameResult(Step);
+    Winner=null;
     console.log('重新:'+map,Step)
 })
-  
 
 
    
