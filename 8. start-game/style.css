@@ -236,6 +236,42 @@ body{
     text-align: center;
 }
 
+.game-box-cross,.game-box-circle{
+    position: relative;
+}
+.game-box-circle::after{
+    position: absolute;
+    content: '';
+    width: 130px;
+    height:  130px;
+    top: 14px;
+    left: 20px;
+    padding: 10px;
+    border: solid 20px black;
+    border-radius: 100%;
+}
+
+.game-box-cross{
+   top: 65px;
+   left: -81px;
+}
+.game-box-cross::before{
+    position: absolute;
+    content: '';
+    width: 90%;
+    height: 20px;
+    background-color: #fff;
+    transform: rotate(45deg);
+}
+.game-box-cross::after{
+    position: absolute;
+    content: '';
+    width: 90%;
+    height: 20px;
+    background-color: #fff;
+    transform: rotate(-45deg);
+}
+
 .left,.left-center,.right,.right-center{
     border-bottom:  solid 10px #ED494C;
 }

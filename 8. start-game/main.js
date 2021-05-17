@@ -29,11 +29,11 @@ boxes.forEach((box, index) => {
 
             if(Step % 2 !== 0){
                map[index] = PLAYER_1 //0 first
-               box.innerHTML = 'O'
+               box.innerHTML = `<div class='game-box-circle'></div>`
                
             }else{
                 map[index] = PLAYER_2;  //x  
-                box.innerHTML= 'x' 
+                box.innerHTML= `<div class='game-box-cross'></div>`
          
             }
             Step ++
