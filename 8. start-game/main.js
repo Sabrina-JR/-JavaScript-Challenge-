@@ -13,7 +13,7 @@ const boxes = document.querySelectorAll('.game-box')//九個格子
 const PLAYER_1 = 1 //圈
 const PLAYER_2 = -1 //叉
 
-let NOW_PLAYER = 1;
+let Step = 1;
 
 let map =[0,0,0,0,0,0,0,0,0]
 
@@ -27,20 +27,19 @@ boxes.forEach((box, index) => {
                 return
             }
 
-            if(NOW_PLAYER % 2 !== 0){
+            if(Step % 2 !== 0){
                map[index] = PLAYER_1 //0 first
                box.innerHTML = 'O'
-               NOW_PLAYER += 1;
+               
             }else{
                 map[index] = PLAYER_2;  //x  
                 box.innerHTML= 'x' 
-                NOW_PLAYER += 1;
+         
             }
-           
-            // console.log(map)
-            // console.log(NOW_PLAYER)
-
-            GameResult(NOW_PLAYER);
+            Step ++
+            console.log(map)
+            // console.log(Step)
+            GameResult(Step);
     })
  
   
@@ -62,25 +61,26 @@ let  GameResult = () =>{
 
     //單數o 雙數x
     GameRule.forEach((box)=>{
-       if(box == 3){
-           console.log('Circle win')
-       }else if(box == -3){
-           console.log('Cross win')
-       }else if (NOW_PLAYER == 10){
-           console.log('draw')
-       }
-    //    console.log(box)
+            if(box === 3){
+                console.log('Circle win'+ Step)
+            }else if(box === -3){
+                console.log('Cross win'+ Step)
+            }else if (Step === 10){
+                console.log('draw'+ Step)
+            }
+            console.log(map,Step)
     })
     
 }
 
 restartBtn.addEventListener('click',()=>{
     boxes.forEach((box)=>{
-        let NOW_PLAYER = 1;
-        let map =[0,0,0,0,0,0,0,0,0]
         box.innerHTML = ''
-        // console.log(NOW_PLAYER,map)
     })
+    map =[0,0,0,0,0,0,0,0,0];
+    Step= 1;
+    GameResult(Step);
+    console.log('重新:'+map,Step)
 })
   
 
