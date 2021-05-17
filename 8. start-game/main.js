@@ -3,6 +3,8 @@
 // const startBtn = document.querySelector('.start-btn');
 // const beginStartScreen = document.querySelector('.begin-start');
 // const startScreen = document.querySelector('.satrt');
+const restartBtn = document.querySelector('.restart-btn');
+console.log(restartBtn)
 const boxes = document.querySelectorAll('.game-box')//九個格子
 
 
@@ -21,11 +23,14 @@ let map =[0,0,0,0,0,0,0,0,0]
 
 boxes.forEach((box, index) => {
     box.addEventListener('click', function() {
+            if(box.innerHTML !== ''){ 
+                return
+            }
+
             if(NOW_PLAYER % 2 !== 0){
                map[index] = PLAYER_1 //0 first
                box.innerHTML = 'O'
                NOW_PLAYER += 1;
-    
             }else{
                 map[index] = PLAYER_2;  //x  
                 box.innerHTML= 'x' 
@@ -64,11 +69,19 @@ let  GameResult = () =>{
        }else if (NOW_PLAYER == 10){
            console.log('draw')
        }
-       console.log(box)
+    //    console.log(box)
     })
     
 }
-GameResult();
+
+restartBtn.addEventListener('click',()=>{
+    boxes.forEach((box)=>{
+        let NOW_PLAYER = 1;
+        let map =[0,0,0,0,0,0,0,0,0]
+        box.innerHTML = ''
+        // console.log(NOW_PLAYER,map)
+    })
+})
   
 
 
