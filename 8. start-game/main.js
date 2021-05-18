@@ -11,19 +11,17 @@ const boxes = document.querySelectorAll('.game-box');//九個格子
 
 
 
-const PLAYER_1 = 1 //圈
-const PLAYER_2 = -1 //叉
 
-let Step = 1;
-let Winner= null;
-let PLAYER_O = 0;
-let PLAYER_X = 0;
+
+const player_1 = 1 //圈
+const player_2 = -1 //叉
+
+let step = 1;
+let winner= null;
+let player_O = 0;
+let player_X = 0;
 
 let map =[0,0,0,0,0,0,0,0,0]
-
-
- 
-
 
 boxes.forEach((box, index) => {
     box.addEventListener('click', function() {
@@ -31,17 +29,17 @@ boxes.forEach((box, index) => {
                 return
             }
 
-            if(Step % 2 !== 0){
-               map[index] = PLAYER_1 //0 first
+            if(step % 2 !== 0){
+               map[index] = player_1 //0 first
                box.innerHTML = `<div class='game-box-circle'></div>`
                
             }else{
-                map[index] = PLAYER_2;  //x  
+                map[index] = player_2;  //x  
                 box.innerHTML= `<div class='game-box-cross'></div>`
          
             }
-            Step ++
-            GameResult(Step);
+            step ++
+            GameResult(map);
             
             
     })
@@ -49,9 +47,19 @@ boxes.forEach((box, index) => {
   
 })
 
+restartBtn.addEventListener('click',()=>{
+    boxes.forEach((box)=>{
+        box.innerHTML = ''
+    })
+    map =[0,0,0,0,0,0,0,0,0];
+    step= 1;
+    winner=null;
+    console.log('重新:'+map,step)
+})
+ 
 
 
-let  GameResult = () =>{
+let  GameResult = (map) =>{
     let GameRule =[
         map[0]+map[1]+map[2],
         map[3]+map[4]+map[5],
@@ -66,45 +74,49 @@ let  GameResult = () =>{
     //單數o 雙數x
     GameRule.forEach((box)=>{
             if(box == 3 ){
-                Winner = 'CIRCLE WIN';
+                winner = 'CIRCLE WIN';
             }else if(box == -3  ){
-                Winner = 'CROSS WIN';
-            }else if (Step == 10){
-                Winner = 'DRAW';
+                winner = 'CROSS WIN';
+            }else if (step == 10){
+                winner = 'DRAW';
             }
-            UpdateScoring(Winner)
-            console.log(Winner,map,box,Step)
+           
+            console.log(winner,map,box,step)
     })
-    
+    UpdateScoring(winner)
 }
 
-
-let UpdateScoring = (Winner) =>{
-        switch(Winner){
-            case 'CIRCLE WIN':
-               PLAYER_O++
-               console.log('PLAYER_O:'+PLAYER_O)
-                break;
-            case 'CIRCLE WIN':
-               PLAYER_X++
-               console.log('PLAYER_X:'+PLAYER_X)
-                break;
-           default:
-                break;
-        }
-    
-
+let UpdateScoring = (winner) =>{
+    switch(winner){
+        case 'CIRCLE WIN':
+           player_O++
+           console.log('PLAYER_O:'+player_O);
+           Score[1].innerHTML =  player_O
+           localStorage.setItem('player_O', player_O )
+            break;
+        case 'CROSS WIN':
+           player_X++
+           console.log('PLAYER_X:'+player_X)
+           Score[0].innerHTML =  player_X
+           localStorage.setItem('player_X', player_X )
+            break;
+       default:
+            break;
+    }
+ 
 }
 
-restartBtn.addEventListener('click',()=>{
-    boxes.forEach((box)=>{
-        box.innerHTML = ''
-    })
-    map =[0,0,0,0,0,0,0,0,0];
-    Step= 1;
-    Winner=null;
-    console.log('重新:'+map,Step)
-})
+let Data = () =>{
+    player_O = localStorage.getItem('player_O');
+    player_X = localStorage.getItem('player_X');
+} 
+   Data();
+
+
+
+
+
+
 
 
    
