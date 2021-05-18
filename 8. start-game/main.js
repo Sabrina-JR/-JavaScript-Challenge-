@@ -2,6 +2,9 @@
 
 const startBtn = document.querySelector('.start-btn'); //開始btn
 const restartBtn = document.querySelector('.restart-btn'); //重新遊戲btn
+const crossBtn = document.querySelector('.cross-btn');
+const circleBtn = document.querySelector('.circle-btn');
+const tieBtn = document.querySelector('.tie-btn');
 const beginStartScreen = document.querySelector('.begin-start'); //開始畫面
 const startScreen = document.querySelector('.satrt'); //遊戲畫面
 const crossWinScreen = document.querySelector('.cross-win') //cross畫面
@@ -22,8 +25,53 @@ let step = 1;
 let winner= null;
 let player_O = 0;
 let player_X = 0;
-
 let map =[0,0,0,0,0,0,0,0,0]
+
+window.onload = () =>{
+    if(beginStartScreen.style.display = 'block'){
+        startScreen.style.display = 'none';
+        crossWinScreen.style.display = 'none';
+        circleWinScreen.style.display = 'none';
+        tieScreen.style.display = 'none'
+    }
+}
+
+//開始按鈕
+startBtn.addEventListener('click',()=>{
+    const body = document.body;
+    body.style.backgroundColor = '#FF6D70';
+    startScreen.style.display = 'block';
+    beginStartScreen.style.display = 'none';
+
+    Score[1].innerHTML =  player_O;
+    Score[0].innerHTML =  player_X;
+})
+
+restartBtn.addEventListener('click', Restart)
+
+// x重新
+crossBtn.addEventListener('click', ()=>{
+    startScreen.style.display = 'block';
+    crossWinScreen.style.display = 'none';
+    Restart();
+})
+
+// o重新
+circleBtn.addEventListener('click', ()=>{
+    startScreen.style.display = 'block';
+    circleWinScreen.style.display = 'none';
+    Restart();    
+})
+
+//tie 重新
+tieBtn.addEventListener('click', ()=>{
+    startScreen.style.display = 'block';
+    tieScreen.style.display = 'none';
+    Restart();     
+})
+
+
+
 
 boxes.forEach((box, index) => {
     box.addEventListener('click', function() {
@@ -49,7 +97,7 @@ boxes.forEach((box, index) => {
   
 })
 
-restartBtn.addEventListener('click',()=>{
+function Restart(){
     boxes.forEach((box)=>{
         box.innerHTML = ''
     })
@@ -57,7 +105,8 @@ restartBtn.addEventListener('click',()=>{
     step= 1;
     winner=null;
     console.log('重新:'+map,step)
-})
+}
+
 
 let  GameResult = (map) =>{
     let GameRule =[
@@ -75,10 +124,16 @@ let  GameResult = (map) =>{
     GameRule.forEach((box)=>{
             if(box == 3 ){
                 winner = 'CIRCLE WIN';
+                startScreen.style.display = 'none';
+                circleWinScreen.style.display = 'block';
             }else if(box == -3  ){
                 winner = 'CROSS WIN';
+                startScreen.style.display = 'none';
+                crossWinScreen.style.display = 'block';
             }else if (step == 10){
                 winner = 'DRAW';
+                startScreen.style.display = 'none';
+                tieScreen.style.display = 'block';
             }
            
             console.log(winner,map,box,step)
@@ -113,30 +168,13 @@ let Data = () =>{
    Data();
 
 
-window.onload = () =>{
-    if(beginStartScreen.style.display = 'block'){
-        startScreen.style.display = 'none';
-        crossWinScreen.style.display = 'none';
-        circleWinScreen.style.display = 'none';
-        tieScreen.style.display = 'none'
-    }
-}
 
 
 
 
 
-//開始按鈕
 
-startBtn.addEventListener('click',()=>{
-    const body = document.body;
-    body.style.backgroundColor = '#FF6D70';
-    startScreen.style.display = 'block';
-    beginStartScreen.style.display = 'none';
 
-    Score[1].innerHTML =  player_O;
-    Score[0].innerHTML =  player_X;
-})
 
 
 
