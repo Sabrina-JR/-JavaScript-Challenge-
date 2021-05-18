@@ -1,15 +1,17 @@
-//DOM
+// DOM
 
-// const startBtn = document.querySelector('.start-btn');
-// const beginStartScreen = document.querySelector('.begin-start');
-// const startScreen = document.querySelector('.satrt');
-const restartBtn = document.querySelector('.restart-btn');
-const Score = document.querySelectorAll('.scoring');
+const startBtn = document.querySelector('.start-btn'); //開始btn
+const restartBtn = document.querySelector('.restart-btn'); //重新遊戲btn
+const beginStartScreen = document.querySelector('.begin-start'); //開始畫面
+const startScreen = document.querySelector('.satrt'); //遊戲畫面
+const crossWinScreen = document.querySelector('.cross-win') //cross畫面
+const circleWinScreen = document.querySelector('.circle-win') //circle畫面
+const tieScreen = document.querySelector('.tie')  //tie畫面
+
+
+const Score = document.querySelectorAll('.scoring'); //計分欄
 
 const boxes = document.querySelectorAll('.game-box');//九個格子
-
-
-
 
 
 
@@ -56,8 +58,6 @@ restartBtn.addEventListener('click',()=>{
     winner=null;
     console.log('重新:'+map,step)
 })
- 
-
 
 let  GameResult = (map) =>{
     let GameRule =[
@@ -113,22 +113,14 @@ let Data = () =>{
    Data();
 
 
-
-
-
-
-
-
-   
-
-    
-    
-
-
-
-// window.onload = () =>{
-//     if()
-// }
+window.onload = () =>{
+    if(beginStartScreen.style.display = 'block'){
+        startScreen.style.display = 'none';
+        crossWinScreen.style.display = 'none';
+        circleWinScreen.style.display = 'none';
+        tieScreen.style.display = 'none'
+    }
+}
 
 
 
@@ -136,13 +128,15 @@ let Data = () =>{
 
 //開始按鈕
 
-// startBtn.addEventListener('click',()=>{
-//     const body = document.body;
-//     body.style.backgroundColor = '#FF6D70';
-//     startScreen.style.display = 'block';
-//     beginStartScreen.style.display = 'none';
+startBtn.addEventListener('click',()=>{
+    const body = document.body;
+    body.style.backgroundColor = '#FF6D70';
+    startScreen.style.display = 'block';
+    beginStartScreen.style.display = 'none';
 
-// })
+    Score[1].innerHTML =  player_O;
+    Score[0].innerHTML =  player_X;
+})
 
 
 
