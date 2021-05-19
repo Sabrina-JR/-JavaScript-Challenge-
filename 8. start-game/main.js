@@ -14,9 +14,10 @@ const tieScreen = document.querySelector('.tie')  //tie畫面
 
 const Score = document.querySelectorAll('.start-scoring'); //計分欄
 const crossScore = document.querySelectorAll('.cross-scoring'); //x記分欄
-const circleScore = document.querySelectorAll('.circle-scoring') //o計分欄
+const circleScore = document.querySelectorAll('.circle-scoring'); //o計分欄
+const tieScore = document.querySelectorAll('.tie-scoring');
+console.log(tieScore)
 
-console.log(circleScore)
 
 const boxes = document.querySelectorAll('.game-box');//九個格子
 
@@ -136,7 +137,7 @@ let  GameResult = (map) =>{
                 startScreen.style.display = 'none';
                 crossWinScreen.style.display = 'block';
             }else if (step == 10){
-                winner = 'DRAW';
+                winner = 'TIE';
                 startScreen.style.display = 'none';
                 tieScreen.style.display = 'block';
             }
@@ -172,6 +173,10 @@ let UpdateScoring = (winner) =>{
             break;
     }
 
+    if(winner = 'TIE'){
+        tieScore[1].innerHTML = player_O
+        tieScore[0].innerHTML = player_X
+    }
  
 }
 
