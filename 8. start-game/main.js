@@ -15,8 +15,8 @@ const tieScreen = document.querySelector('.tie')  //tie畫面
 const Score = document.querySelectorAll('.start-scoring'); //計分欄
 const crossScore = document.querySelectorAll('.cross-scoring'); //x記分欄
 const circleScore = document.querySelectorAll('.circle-scoring'); //o計分欄
-const tieScore = document.querySelectorAll('.tie-scoring');
-console.log(tieScore)
+const tieScore = document.querySelectorAll('.tie-scoring'); //tie 計分欄
+
 
 
 const boxes = document.querySelectorAll('.game-box');//九個格子
@@ -49,8 +49,14 @@ startBtn.addEventListener('click',()=>{
     startScreen.style.display = 'block';
     beginStartScreen.style.display = 'none';
 
-    Score[1].innerHTML =  player_O;
-    Score[0].innerHTML =  player_X;
+    Score[1].innerHTML =  0;
+    Score[0].innerHTML =  0;
+
+    if(player_O > 0 ){
+        Score[1].innerHTML =  player_O;  
+    }else if(player_X > 0){
+        Score[0].innerHTML =  player_X;
+    }
 })
 
 restartBtn.addEventListener('click', Restart)
@@ -148,7 +154,10 @@ let  GameResult = (map) =>{
 }
 
 let UpdateScoring = (winner) =>{
+
+ 
     switch(winner){
+
         case 'CIRCLE WIN':
            player_O++
            console.log('PLAYER_O:'+player_O);
@@ -172,7 +181,6 @@ let UpdateScoring = (winner) =>{
        default:
             break;
     }
-
     if(winner = 'TIE'){
         tieScore[1].innerHTML = player_O
         tieScore[0].innerHTML = player_X

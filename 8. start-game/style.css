@@ -60,6 +60,7 @@ body{
     top: 70px;
     transform: rotate(45deg);
     border: solid 5px #fff;
+
 }
 .box-item>.cross-empty::after{
     position: absolute;
@@ -69,8 +70,10 @@ body{
     padding: 5px;
     top: 70px;
     transform: rotate(-45deg);
-    background-color: #000;
     border: solid 5px #fff;
+    background-color: #000;
+    
+
 }
 
 .box-item>.circle-empty{
