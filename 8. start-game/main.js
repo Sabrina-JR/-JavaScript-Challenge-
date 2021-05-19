@@ -9,6 +9,7 @@ const beginStartScreen = document.querySelector('.begin-start'); //開始畫面
 const startScreen = document.querySelector('.satrt'); //遊戲畫面
 const crossWinScreen = document.querySelector('.cross-win') //cross畫面
 const circleWinScreen = document.querySelector('.circle-win') //circle畫面
+
 const tieScreen = document.querySelector('.tie')  //tie畫面
 
 
@@ -16,7 +17,7 @@ const Score = document.querySelectorAll('.start-scoring'); //計分欄
 const crossScore = document.querySelectorAll('.cross-scoring'); //x記分欄
 const circleScore = document.querySelectorAll('.circle-scoring'); //o計分欄
 const tieScore = document.querySelectorAll('.tie-scoring'); //tie 計分欄
-
+console.log(circleScore )
 
 
 const boxes = document.querySelectorAll('.game-box');//九個格子
@@ -48,15 +49,17 @@ startBtn.addEventListener('click',()=>{
     body.style.backgroundColor = '#FF6D70';
     startScreen.style.display = 'block';
     beginStartScreen.style.display = 'none';
-
     Score[1].innerHTML =  0;
     Score[0].innerHTML =  0;
 
     if(player_O > 0 ){
-        Score[1].innerHTML =  player_O;  
+        Score[1].innerHTML =  player_O;
+        Score[0].innerHTML =  player_X;
     }else if(player_X > 0){
+        Score[1].innerHTML =  player_O;
         Score[0].innerHTML =  player_X;
     }
+
 })
 
 restartBtn.addEventListener('click', Restart)

@@ -425,3 +425,64 @@ body{
     border: solid 30px #ED494C;
 
 }
+
+
+/* ----------- */
+
+@media screen and (max-width:800px) {
+    .box-item>.text {
+        font-size: 80px;
+    }
+    .box-item>.circle {
+        width: 13%;
+        height: 100px;
+    }
+    .box-item>.cross-empty, .box-item>.cross{
+        width: 100px;
+    }
+    
+    .box-item>.circle-empty {
+        width: 100px;
+        height: 100px;
+    }
+    .box-item>.circle-empty::after {
+        width: 75px;
+        height: 75px;
+    }
+    .start-btn {
+        width: 23%;
+        font-size: 34px;
+    }
+    .cross-score::after {
+        width: 70%;
+        height: 70%;
+        left: 8px;
+        top: 8px;
+    }
+    .circle-score::after ,.circle-score::before {
+        width: 70%;
+        left: 7px;
+    }
+    .restart-btn {
+        width: 34.3%;
+        font-size: 40px;
+    }
+    .scoring {
+        width: 150px;
+    }
+    .game-playground {
+        max-width: 500px;
+    }
+    .game-box-circle::after {
+        width: 100px;
+        height: 100px;
+        top: 29px;
+    }
+    .game-box-cross::before , .game-box-cross::after {
+        width: 75%;
+    }
+    .game-box-cross {
+        left: -62px;
+    }
+
+}
