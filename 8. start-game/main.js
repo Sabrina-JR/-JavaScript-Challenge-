@@ -2,9 +2,9 @@
 
 const startBtn = document.querySelector('.start-btn'); //開始btn
 const restartBtn = document.querySelector('.restart-btn'); //重新遊戲btn
-const crossBtn = document.querySelector('.cross-btn');
-const circleBtn = document.querySelector('.circle-btn');
-const tieBtn = document.querySelector('.tie-btn');
+const crossBtn = document.querySelector('.cross-btn'); //x btn
+const circleBtn = document.querySelector('.circle-btn'); // o btn
+const tieBtn = document.querySelector('.tie-btn'); // tie btn
 const beginStartScreen = document.querySelector('.begin-start'); //開始畫面
 const startScreen = document.querySelector('.satrt'); //遊戲畫面
 const crossWinScreen = document.querySelector('.cross-win') //cross畫面
@@ -12,7 +12,11 @@ const circleWinScreen = document.querySelector('.circle-win') //circle畫面
 const tieScreen = document.querySelector('.tie')  //tie畫面
 
 
-const Score = document.querySelectorAll('.scoring'); //計分欄
+const Score = document.querySelectorAll('.start-scoring'); //計分欄
+const crossScore = document.querySelectorAll('.cross-scoring'); //x記分欄
+const circleScore = document.querySelectorAll('.circle-scoring') //o計分欄
+
+console.log(circleScore)
 
 const boxes = document.querySelectorAll('.game-box');//九個格子
 
@@ -35,6 +39,7 @@ window.onload = () =>{
         tieScreen.style.display = 'none'
     }
 }
+
 
 //開始按鈕
 startBtn.addEventListener('click',()=>{
@@ -146,26 +151,38 @@ let UpdateScoring = (winner) =>{
         case 'CIRCLE WIN':
            player_O++
            console.log('PLAYER_O:'+player_O);
-           Score[1].innerHTML =  player_O
+
+           Score[1].innerHTML =  player_O;
+           crossScore[1].innerHTML = player_O;
+           circleScore[1].innerHTML = player_O;
+
            localStorage.setItem('player_O', player_O )
             break;
         case 'CROSS WIN':
            player_X++
            console.log('PLAYER_X:'+player_X)
-           Score[0].innerHTML =  player_X
+
+           Score[0].innerHTML =  player_X;
+           crossScore[0].innerHTML = player_X;
+           circleScore[0].innerHTML = player_X;
+           
            localStorage.setItem('player_X', player_X )
             break;
        default:
             break;
     }
+
  
 }
 
 let Data = () =>{
+
     player_O = localStorage.getItem('player_O');
     player_X = localStorage.getItem('player_X');
 } 
    Data();
+
+
 
 
 
