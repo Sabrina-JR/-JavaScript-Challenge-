@@ -12,13 +12,10 @@ const circleWinScreen = document.querySelector('.circle-win') //circle畫面
 
 const tieScreen = document.querySelector('.tie')  //tie畫面
 
-
 const Score = document.querySelectorAll('.start-scoring'); //計分欄
 const crossScore = document.querySelectorAll('.cross-scoring'); //x記分欄
 const circleScore = document.querySelectorAll('.circle-scoring'); //o計分欄
 const tieScore = document.querySelectorAll('.tie-scoring'); //tie 計分欄
-console.log(circleScore )
-
 
 const boxes = document.querySelectorAll('.game-box');//九個格子
 
@@ -104,12 +101,9 @@ boxes.forEach((box, index) => {
          
             }
             step ++
-            GameResult(map);
-            
-            
+            GameResult(map);             
     })
  
-  
 })
 
 function Restart(){
@@ -119,7 +113,6 @@ function Restart(){
     map =[0,0,0,0,0,0,0,0,0];
     step= 1;
     winner=null;
-    console.log('重新:'+map,step)
 }
 
 
@@ -150,8 +143,6 @@ let  GameResult = (map) =>{
                 startScreen.style.display = 'none';
                 tieScreen.style.display = 'block';
             }
-           
-            console.log(winner,map,box,step)
     })
     UpdateScoring(winner)
 }

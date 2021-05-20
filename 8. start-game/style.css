@@ -1,7 +1,7 @@
 
 
 *,*::before, *::after{ 
-    /* outline: solid 1px black; */
+    /* outline: solid 1px #fff; */
     box-sizing: border-box;
 }
 
@@ -427,15 +427,15 @@ body{
 }
 
 
-/* ----------- */
+/* -----RWD------ */
 
-@media screen and (max-width:800px) {
+@media screen and (max-width:750px) {
     .box-item>.text {
-        font-size: 80px;
+        font-size: 60px;
     }
     .box-item>.circle {
-        width: 13%;
-        height: 100px;
+        width: 12%;
+        height: 85px;
     }
     .box-item>.cross-empty, .box-item>.cross{
         width: 100px;
@@ -465,24 +465,157 @@ body{
     }
     .restart-btn {
         width: 34.3%;
-        font-size: 40px;
+        font-size: 30px;
     }
     .scoring {
-        width: 150px;
+        width: 120px;
     }
     .game-playground {
-        max-width: 500px;
+        max-width: 400px;
+        margin-top: 60px;
+    }
+
+    .game-box {
+        height: 140px;
     }
     .game-box-circle::after {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
         top: 29px;
     }
+   
     .game-box-cross::before , .game-box-cross::after {
         width: 75%;
     }
     .game-box-cross {
-        left: -62px;
+        left: -44px;
     }
 
+} 
+
+@media screen and (max-width:550px){
+    .box-item>.circle {
+        height: 65px;
+    }
+    .box-item>.cross-empty::after, .box-item>.cross-empty::before {
+        width: 80%;
+    }
+    .box-item>.cross::after , .box-item>.cross::before{
+        width: 80%;
+    }
+    .box-item>.circle-empty {
+        width: 70px;
+        height: 70px;
+    }
+    .box-item>.circle-empty::after {
+        width: 50px;
+        height: 50px;
+    }
+    .start-btn {
+        font-size: 28px;
+    }
+    .scoring {
+        width: 100px;
+    }
+    .restart-btn {
+        font-size: 27px;
+    }
+    .game-box-circle::after {
+        width: 70px;
+        height: 70px;
+    }
+    .game-box-cross::after,.game-box-cross::before{
+        width: 55%;
+    }
+    .winner {
+        font-size: 130px;
+        left: 2px;
+    }
+    .box {
+        margin: 0px 25px;
+    }
+    .tie-logo>.winner1, .tie-logo>.winner2, .tie-logo>.winner {
+        font-size: 100px;
+        left: 51px;
+    }
+    .tie-logo>.winner1{
+        top: 20px;
+    }
+}
+
+@media screen and (max-width:414px) {
+    .box-item>.text {
+        font-size: 60px;
+    }
+    .box-item>.circle{
+        width: 20%;
+        height: 65px;
+    }
+ 
+    .box-item>.circle>.box {
+        margin: 0px 15px;  
+    }
+    .box-item>.circle-empty::after {
+        width: 45px;
+        height: 45px;
+    }
+    .box-item>.circle-empty {
+        width: 63px;
+        height: 63px;
+    }
+    .box-item>.cross-empty::after, .box-item>.cross-empty::before {
+        width: 60%;
+        left:  40px;
+    }
+    .box-item>.cross::after, .box-item>.cross::before {
+        width: 60%;
+        left: 20px;
+    }
+    .start-btn {
+        font-size: 17px;
+    }
+    .tic,.tac{
+        padding-right: 20px;
+    }
+    .box {
+        margin: -12px 7px;
+    }
+    .restart-btn {
+        font-size: 20px;
+    }
+    .game-playground {
+        max-width: 300px;
+    }
+    .game-box-cross::after, .game-box-cross::before {
+        width: 68%;
+    }
+    .game-box-cross {
+        left: -30px;
+    }
+    .game-box-circle::after {
+        width: 50px;
+        height: 50px;
+        left: 12px;
+    }
+ 
+    .circle-logo::after {
+        width: 80%;
+        height: 60%;
+        left: 34px;
+        top: 78px;
+    }
+    .winner {
+        font-size: 80px;
+        left: 13px;
+        top: 37%
+    }
+    .tie-logo>.winner1, .tie-logo>.winner2, .tie-logo>.winner {
+        font-size: 80px;
+        left: 10px;
+    }
+
+    .tie-logo>.winner1{
+        top: 38px
+    }
+ 
 }
