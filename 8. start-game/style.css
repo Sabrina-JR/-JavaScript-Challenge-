@@ -548,10 +548,14 @@ body{
         width: 15%;
     }
     .winner {
-        left: 49px;
+        font-size: 108px;
+        left: 13px;
     }
     .tie-logo>.winner1, .tie-logo>.winner2, .tie-logo>.winner {
-        left: 51px;
+        left: 20px;
+    }
+    .start-btn {
+        font-size: 21px;
     }
 }
 
